@@ -49,3 +49,26 @@ Custom colour schemes can be placed in `~/.config/quickterm/colors/`.
 ## Status
 
 Early development. Contributions and feedback are welcome.
+
+## Installation (Arch Linux)
+
+Clone the repository:
+
+```bash
+git clone https://github.com/bruylandcas/quickterm.git
+cd quickterm
+```
+
+Build and install QuickTerm:
+
+```bash
+makepkg -si
+```
+
+Launch QuickTerm:
+
+```bash
+quickterm
+```
+
+**Dependencies:** Python, PyQt6 and QTermWidget.
