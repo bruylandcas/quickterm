@@ -1,0 +1,3 @@
+#!/bin/sh
+export QT_QPA_PLATFORMTHEME=generic
+exec python /usr/share/quickterm/quickterm.py "$@"
