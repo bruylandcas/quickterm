@@ -7,15 +7,29 @@ arch=('any')
 url="https://github.com/bruylandcas/quickterm"
 license=('MIT')
 depends=('python' 'python-pyqt6' 'qtermwidget')
-source=('quickterm.py' 'quickterm')
-sha256sums=('SKIP' 'SKIP')
+
+source=(
+    'quickterm.py'
+    'quickterm'
+    'LICENSE'
+    'QuickTerm.colorscheme'
+)
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 package() {
-    install -Dm755 "$srcdir/quickterm.py" "$pkgdir/usr/share/quickterm/quickterm.py"
-    install -Dm755 "$srcdir/quickterm" "$pkgdir/usr/bin/quickterm"
+    install -Dm755 "$srcdir/quickterm.py" \
+        "$pkgdir/usr/share/quickterm/quickterm.py"
 
-    install -Dm644 /dev/null "$pkgdir/usr/share/applications/quickterm.desktop"
-    cat > "$pkgdir/usr/share/applications/quickterm.desktop" <<'EOF'
+    install -Dm755 "$srcdir/quickterm" \
+        "$pkgdir/usr/bin/quickterm"
+
+    install -Dm644 "$srcdir/QuickTerm.colorscheme" \
+        "$pkgdir/usr/share/quickterm/colors/QuickTerm.colorscheme"
+
+    install -Dm644 "$srcdir/LICENSE" \
+        "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+    install -Dm644 /dev/stdin "$pkgdir/usr/share/applications/quickterm.desktop" <<'EOF'
 [Desktop Entry]
 Name=QuickTerm
 Comment=Lightweight terminal emulator
@@ -27,3 +41,4 @@ Categories=System;TerminalEmulator;
 StartupNotify=true
 EOF
 }
+

@@ -1,3 +1,6 @@
+pkg/
+src/
+*.pkg.tar.*
 quickterm.py.stable
 __pycache__/
 *.pyc

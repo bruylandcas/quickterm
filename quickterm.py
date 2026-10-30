@@ -55,7 +55,7 @@ class QuickTerm(QMainWindow):
 
         terminal = QTermWidget()
         terminal.addCustomColorSchemeDir(
-    str(Path.home() / ".config/quickterm/colors")
+    str(Path(__file__).parent / "colors")
 )
         terminal.addCustomColorSchemeDir(
             str(Path.home() / ".config/quickterm/colors")
